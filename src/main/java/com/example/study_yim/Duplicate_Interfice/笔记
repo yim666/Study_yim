@@ -1,0 +1,57 @@
+一个接口对应多个实现类
+
+一个接口对应多个实现类，需要注入指定的实现类。
+如：Interface接口下有两个实现类InterfaceImpl1和InterfaceImpl2。
+接口：
+
+
+public interface Interface1 {
+    void fun1();
+}
+
+@Service("s1")
+public class Interface1Impl1 implements Interface1 {
+    @Override
+    public void fun1() {
+        System.out.println("接口1实现类 ...");
+    }
+    public void fun2(){
+        System.out.println("接口1实现类1 fun2 ...");
+    }
+}
+
+@Service("s2")
+public class Interface1Impl2 implements Interface1 {
+    @Override
+    public void fun1() {
+       System.out.println("接口1实现类 ...");
+    }
+    public void fun2(){
+       System.out.println("接口1实现类2 fun2 ...");
+    }
+}
+
+
+在写实现类的时候事先指明实现类的优先级，注入的时候就会使用优先级高的实现类。
+在controller中注入接口，默认使用的是Primary 标注的实现类的方法
+@Service("s1")
+@Primary     //**同一个接口的多个实现类，最多只能有一个添加该注解**
+public class InterfaceImpl1 implements Interface {
+     。。。
+}
+
+
+通过 @Autowired 和 @Qualifier 配合注入
+
+@Qualifier("interface1Impl1")
+@Autowired
+Interface1 interface1;
+
+使用@Resource注入，根据默认类名区分
+
+@Resource(name = "interface1Impl1")
+Interface1 interface1;    //正常启动
+使用@Resource注入，根据@Service指定的名称区分
+
+@Resource(name = "s1")
+Interface1 interface1;    //正常启动
