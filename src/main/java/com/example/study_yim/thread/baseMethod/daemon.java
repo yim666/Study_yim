@@ -4,7 +4,7 @@ package com.example.study_yim.thread.baseMethod;
 public class daemon {
     public static void main(String[] args) {
         Thread rose = new Thread() {
-            public void run() {
+            public void  run() {
                 for (int i = 0; i < 5; i++) {
                     System.out.println("rose:let me go!!");
                     try {

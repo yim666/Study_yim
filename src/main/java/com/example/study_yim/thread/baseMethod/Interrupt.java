@@ -1,5 +1,6 @@
 package com.example.study_yim.thread.baseMethod;
 
+//interupt 中断线程阻塞  通过中断异常逃离阻塞； 实际是发送一个异常信号给阻塞的位置  使线程逃离阻塞
 public class Interrupt {
     public static void main(String[] args) {
 
