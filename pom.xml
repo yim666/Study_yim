@@ -40,6 +40,11 @@
             <version>${dom4j.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
