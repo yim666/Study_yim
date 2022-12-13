@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+<!--    id是标签的属性-->
+    <user id="YH1">
+<!--        name是user标签的子标签-->
+        <name>yh</name>
+        <salary>9000</salary>
+    </user>
+    <user id="WWW1">
+        <name>wxx</name>
+    </user>
+</users>
